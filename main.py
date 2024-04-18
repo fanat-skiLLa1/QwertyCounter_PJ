@@ -3,16 +3,16 @@ import keyboard as kbd
 dct = {}
 
 try:
-    with open('options.txt', 'r') as file:
-        print('Настройки были найдены!')
+    with open('saves.txt', 'r') as file:
+        print('Сохранения были найдены!')
         for string in file:
             temp_lst = string.split('_')
             key, value = temp_lst[0], int(temp_lst[1])
             dct[key] = value
 
 except FileNotFoundError:
-    with open('options.txt', 'w') as file:
-        print('Настройки не найдены! Выставляем настройки по умолчанию ( •̀ ω •́ )y')
+    with open('saves.txt', 'w') as file:
+        print('Сохранения не найдены! Выставляем по умолчанию ( •̀ ω •́ )y')
         dct = {
             'a': 0,
             'b': 0,
@@ -224,9 +224,9 @@ kbd.wait('esc')
 printDictionary(dct)
 
 with open('options.txt', 'w') as file:
-    print('\nСохранение настроек! Пожалуйста, подождите (_　_)。゜zｚＺ')
+    print('\nСохранение! Пожалуйста, подождите (_　_)。゜zｚＺ')
 
     for key, value in dct.items():
         file.write(f'{key}_{value}\n')
 
-    print('Настройки были успешно сохранены!(✿◡‿◡)')
+    print('Сохранения были успешно сохранены!(✿◡‿◡)')
